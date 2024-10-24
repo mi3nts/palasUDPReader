@@ -18,7 +18,7 @@ while True:
         print(f"Received message from {addr}: {data.decode('ascii', errors='ignore')}")
         # Step 2: Split by semicolons to get key-value pairs
 
-        message = data
+        message = str(data)
         # Step 1: Extract the portion after 'sendVal'
         start = message.find('<sendVal ') + len('<sendVal ')
         end = message.find('>', start)
