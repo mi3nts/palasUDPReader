@@ -19,9 +19,9 @@ while True:
         print(type(data))
         print(type(data.decode('ascii', errors='ignore')))
 
-        print(data[0].decode('ascii', errors='ignore'))
-        print(data[1].decode('ascii', errors='ignore'))
-        print(data[2].decode('ascii', errors='ignore'))
+        print(data[0])
+        print(data[1])
+        print(data[2])
         # Step 2: Split by semicolons to get key-value pairs
 
         # message = str(data)
