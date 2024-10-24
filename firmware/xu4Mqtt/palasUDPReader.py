@@ -1,5 +1,6 @@
 import socket
 import datetime
+import time
 # Set up the UDP socket
 UDP_IP = "0.0.0.0"  # Listen on all network interfaces
 UDP_PORT = 56790     # Set the port number you're expecting (e.g., 5005)
@@ -14,8 +15,9 @@ while True:
     try:
         # Using a large buffer size to handle unknown packet size (max 65507 for UDP)
         print(datetime.datetime.now())
-        data, addr = sock.recvfrom(2000)  # Maximum possible UDP packet size
-        print(data)
+        # data, addr = sock.recvfrom(2000)  # Maximum possible UDP packet size
+        # print(data)
+        time.sleep(1)
         # print(data.decode('ascii', errors='ignore'))
         # # Calculate buffer size
         # buffer_size = len(data)
