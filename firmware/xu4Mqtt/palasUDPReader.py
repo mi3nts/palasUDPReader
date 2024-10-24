@@ -8,7 +8,7 @@ UDP_PORT = 56790     # Set the port number you're expecting (e.g., 5005)
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 sock.bind((UDP_IP, UDP_PORT))
 
-print(f"Listening for UDP data on port {UDP_PORT}...")
+# print(f"Listening for UDP data on port {UDP_PORT}...")
 
 while True:
     try:
