@@ -17,7 +17,7 @@ while True:
         data, addr = sock.recvfrom(2000)  # Maximum possible UDP packet size
         print(f"Received message from {addr}: {data.decode('ascii', errors='ignore')}")
         print(type(data))
-
+        print(type(print(type(data))))
         # Step 2: Split by semicolons to get key-value pairs
 
         # message = str(data)
@@ -38,6 +38,6 @@ while True:
         # print(data_dict)
         # buffer_size = len(data)
         # print(data[0])
-        print(f"Buffer size of received message: {buffer_size} bytes")
+        # print(f"Buffer size of received message: {buffer_size} bytes")
     except Exception as e:
         print(f"Error receiving data: {e}")
