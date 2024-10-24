@@ -18,10 +18,9 @@ while True:
         print(f"Received message from {addr}: {data.decode('ascii', errors='ignore')}")
         print(type(data))
         print(type(data.decode('ascii', errors='ignore')))
+        for index, item in enumerate(data):
+            print(f"Index: {index}, Value: {item}")
 
-        print(data[0])
-        print(data[1])
-        print(data[2])
         # Step 2: Split by semicolons to get key-value pairs
 
         # message = str(data)
