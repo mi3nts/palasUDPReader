@@ -15,7 +15,7 @@ while True:
     try:
         # Using a large buffer size to handle unknown packet size (max 65507 for UDP)
         print(datetime.datetime.now())
-        # data, addr = sock.recvfrom(2000)  # Maximum possible UDP packet size
+        data, addr = sock.recvfrom(2000)  # Maximum possible UDP packet size
         # print(data)
         time.sleep(1)
         # print(data.decode('ascii', errors='ignore'))
