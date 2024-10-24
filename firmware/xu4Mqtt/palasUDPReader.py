@@ -18,6 +18,7 @@ while True:
         print(f"Received message from {addr}: {data.decode('ascii', errors='ignore')}")
         # Calculate buffer size
         buffer_size = len(data)
+        print(data[0])
         print(f"Buffer size of received message: {buffer_size} bytes")
     except Exception as e:
         print(f"Error receiving data: {e}")
