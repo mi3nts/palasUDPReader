@@ -49,9 +49,6 @@ sock.bind((UDP_IP, UDP_PORT))
 
 print(f"Listening for UDP data on port {UDP_PORT}...")
 
-
-
-
 while True:
     try:
         # Using a large buffer size to handle unknown packet size (max 65507 for UDP)
