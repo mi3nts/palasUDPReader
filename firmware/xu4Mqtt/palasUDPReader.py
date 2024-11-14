@@ -43,11 +43,11 @@ data = {
 df = pd.DataFrame(data)
 
 print(df)
-# # Add 'Midpoint [µm]' column
-# df['Midpoint [µm]'] = (df['Xlower [µm]'] + df['Xupper [µm]']) / 2
+# Add 'Midpoint [µm]' column
+df['Midpoint [µm]'] = (df['Xlower [µm]'] + df['Xupper [µm]']) / 2
 
-# # Print the updated DataFrame
-# print(df)
+# Print the updated DataFrame
+print(df)
 
 
 
