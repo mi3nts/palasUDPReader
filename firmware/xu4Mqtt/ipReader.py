@@ -28,12 +28,21 @@ def main():
 
     publicIp = get('https://api.ipify.org').text
 
-    localIp = ni.ifaddresses('wlan0')[ni.AF_INET][0]['addr'] # Odroid XU4
+    interfaces = ni.interfaces()  # Get all available network interfaces
+    for interface in interfaces:
+        try:
+            # Check if this interface has an IPv4 address
+            ip = ni.ifaddresses(interface).get(ni.AF_INET)
+            if ip:
+                return ip[0]['addr']
+        except ValueError:
+            continue  # If an interface has no IP or is unavailable, skip it
+    
 
     sensorDictionary =  OrderedDict([
             ("dateTime"     , str(dateTimeNow)),
             ("publicIp"  ,str(publicIp)),
-            ("localIp"  ,str(localIp))
+            ("localIp"  ,str(ip))
             ])
 
     mSR.sensorFinisherIP(dateTimeNow,sensorName,sensorDictionary)
