@@ -70,7 +70,7 @@ while True:
         # Using a large buffer size to handle unknown packet size (max 65507 for UDP)
         dateTimeNow = datetime.datetime.now()
         data, addr = sock.recvfrom(2000)  # Maximum possible UDP packet size
-        print(f"Received message from {addr}: {data.decode('ascii', errors='ignore')}")
+        # print(f"Received message from {addr}: {data.decode('ascii', errors='ignore')}")
 
         message = data.decode('ascii', errors='ignore')
 
