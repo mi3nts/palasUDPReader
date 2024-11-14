@@ -89,7 +89,7 @@ while True:
         print(data[0])
         print(f"Buffer size of received message: {buffer_size} bytes")
         df['Mapped Value'] = df['Data channel'].map(data_dict)
-        print(df)
+        print(df.tail())
 
 
     except Exception as e:
