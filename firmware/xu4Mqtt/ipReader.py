@@ -38,6 +38,7 @@ def main():
         try:
             # Check if this interface has an IPv4 address
             ip = ni.ifaddresses(interface).get(ni.AF_INET)
+            print(ip)
             if ip:
                 localIp = ip[0]['addr']
                 break  # Stop once we find the first valid IP
