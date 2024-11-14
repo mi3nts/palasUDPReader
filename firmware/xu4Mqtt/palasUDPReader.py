@@ -1,6 +1,6 @@
 import socket
 import datetime
-
+from collections import OrderedDict
 import pandas as pd
 
 # Define the data as lists
@@ -93,9 +93,7 @@ while True:
         print(data[0])
         print(f"Buffer size of received message: {buffer_size} bytes")
         particleCountInfo['particleCounts'] = particleCountInfo['Data channel'].map(data_dict)
-        print(datetime.datetime.now())
-        print(particleCountInfo.head(20))
-
-
+        ordered_dict = OrderedDict(zip(particleCountInfo['measurment'], particleCountInfo['particleCounts']))
+        print(ordered_dict)
     except Exception as e:
         print(f"Error receiving data: {e}")
