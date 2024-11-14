@@ -39,13 +39,15 @@ data = {
 
 # Create DataFrame
 particleCountInfo = pd.DataFrame(data)
-
-print(particleCountInfo)
-# Add 'Midpoint [µm]' column
 particleCountInfo['Midpoint [µm]'] = (particleCountInfo['Xlower [µm]'] + particleCountInfo['Xupper [µm]']) / 2
-# particleCountInfo['columnName'] = "pc" +str(particleCountInfo['Midpoint [µm]']).replace(".","_")
-# Print the updated DataFrame
-particleCountInfo['measurment'] = particleCountInfo['Midpoint [µm]'].round(7).apply(lambda x: f"pc_{x:.7f}".replace('.', '_'))
+particleCountInfo['measurment'] = particleCountInfo['Midpoint [µm]'].round(7).apply(lambda x: f"pc{x:.7f}".replace('.', '_'))
+particleCountInfo.loc[particleCountInfo['Data channel'] == 60, 'measurment'] = 'cn'
+particleCountInfo.loc[particleCountInfo['Data channel'] == 61, 'measurment'] = 'pm1_0'
+particleCountInfo.loc[particleCountInfo['Data channel'] == 62, 'measurment'] = 'pm2_5'
+particleCountInfo.loc[particleCountInfo['Data channel'] == 63, 'measurment'] = 'pm4_0'
+particleCountInfo.loc[particleCountInfo['Data channel'] == 64, 'measurment'] = 'pm10_0'
+particleCountInfo.loc[particleCountInfo['Data channel'] == 65, 'measurment'] = 'pmTotal'
+
 
 print(particleCountInfo)
 # For particulate matter 
