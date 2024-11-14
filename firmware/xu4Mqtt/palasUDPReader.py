@@ -94,7 +94,7 @@ while True:
         print(f"Buffer size of received message: {buffer_size} bytes")
         particleCountInfo['particleCounts'] = particleCountInfo['Data channel'].map(data_dict)
         orderedDict = OrderedDict(zip(particleCountInfo['measurment'], particleCountInfo['particleCounts']))
-        mSR.sensorFinisher(dateTimeNow,"PLSFRG001",    OrderedDict([("dateTime", dateTimeNow)] + list(orderedDict.items())))
+        mSR.sensorFinisher(dateTimeNow,"PLSFRG001",    OrderedDict([("dateTime", str(dateTimeNow))] + list(orderedDict.items())))
 
 
     except Exception as e:
