@@ -2,7 +2,7 @@ import socket
 import datetime
 from collections import OrderedDict
 import pandas as pd
-
+from mintsXU4 import mintsSensorReader as mSR
 # Define the data as lists
 data = {
     "Data channel": list(range(60, 66)) + list(range(110, 205)),
@@ -47,8 +47,6 @@ particleCountInfo.loc[particleCountInfo['Data channel'] == 62, 'measurment'] = '
 particleCountInfo.loc[particleCountInfo['Data channel'] == 63, 'measurment'] = 'pm4_0'
 particleCountInfo.loc[particleCountInfo['Data channel'] == 64, 'measurment'] = 'pm10_0'
 particleCountInfo.loc[particleCountInfo['Data channel'] == 65, 'measurment'] = 'pmTotal'
-
-
 print(particleCountInfo)
 # For particulate matter 
 
@@ -70,7 +68,7 @@ print(f"Listening for UDP data on port {UDP_PORT}...")
 while True:
     try:
         # Using a large buffer size to handle unknown packet size (max 65507 for UDP)
-        print(datetime.datetime.now())
+        dateTimeNow = datetime.datetime.now()
         data, addr = sock.recvfrom(2000)  # Maximum possible UDP packet size
         print(f"Received message from {addr}: {data.decode('ascii', errors='ignore')}")
 
@@ -96,6 +94,9 @@ while True:
         print(f"Buffer size of received message: {buffer_size} bytes")
         particleCountInfo['particleCounts'] = particleCountInfo['Data channel'].map(data_dict)
         ordered_dict = OrderedDict(zip(particleCountInfo['measurment'], particleCountInfo['particleCounts']))
-        print(ordered_dict)
+        OrderedDict([(dateTimeNow, None)] + list(ordered_dict.items()))
+        mSR.sensorFinisher(dateTimeNow,"PLS001",OrderedDict([(dateTimeNow, None)] + list(ordered_dict.items())))
+
+
     except Exception as e:
         print(f"Error receiving data: {e}")
