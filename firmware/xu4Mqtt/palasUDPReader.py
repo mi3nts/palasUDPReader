@@ -47,7 +47,7 @@ particleCountInfo.loc[particleCountInfo['Data channel'] == 62, 'measurment'] = "
 particleCountInfo.loc[particleCountInfo['Data channel'] == 63, 'measurment'] = "pm4_0"
 particleCountInfo.loc[particleCountInfo['Data channel'] == 64, 'measurment'] = "pm10_0"
 particleCountInfo.loc[particleCountInfo['Data channel'] == 65, 'measurment'] = "pmTotal"
-print(particleCountInfo)
+# print(particleCountInfo)
 # For particulate matter 
 
 
