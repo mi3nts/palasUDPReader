@@ -43,7 +43,7 @@ particleCountInfo = pd.DataFrame(data)
 print(particleCountInfo)
 # Add 'Midpoint [µm]' column
 particleCountInfo['Midpoint [µm]'] = (particleCountInfo['Xlower [µm]'] + particleCountInfo['Xupper [µm]']) / 2
-particleCountInfo['columnName'] = "pc" +str(particleCountInfo['Midpoint [µm]']).replace(".","_")
+# particleCountInfo['columnName'] = "pc" +str(particleCountInfo['Midpoint [µm]']).replace(".","_")
 # Print the updated DataFrame
 print(particleCountInfo)
 
