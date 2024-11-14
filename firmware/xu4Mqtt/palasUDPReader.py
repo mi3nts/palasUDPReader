@@ -5,8 +5,8 @@ import pandas as pd
 
 # Define the data as lists
 data = {
-    "Data channel": list(range(110, 205)),
-    "Xlower [µm]": [
+    "Data channel": list(range(60, 66)) + list(range(110, 205)),
+    "Xlower [µm]": [ 0,0,0,0,0,0,
     0.100000, 0.107461, 0.115478, 0.124094, 0.133352, 0.143301, 0.153993, 0.165482,
     0.177828, 0.191095, 0.205353, 0.220673, 0.237137, 0.254830, 0.273842, 0.294273,
     0.316228, 0.339821, 0.365174, 0.392419, 0.421697, 0.453158, 0.486968, 0.523299,
@@ -21,7 +21,8 @@ data = {
     48.696751, 52.329910, 56.234131, 60.429638, 64.938164, 69.783058, 74.989418,
     80.584221, 86.596436, 93.057205
 ],
-    "Xupper [µm]": [0.107461, 0.115478, 0.124094, 0.133352, 0.143301, 0.153993, 0.165482, 0.177828,
+    "Xupper [µm]": [0,0,0,0,0,0,
+                    0.107461, 0.115478, 0.124094, 0.133352, 0.143301, 0.153993, 0.165482, 0.177828,
                     0.191095, 0.205353, 0.220673, 0.237137, 0.254830, 0.273842, 0.294273, 0.316228,
                     0.339821, 0.365174, 0.392419, 0.421697, 0.453158, 0.486968, 0.523299, 0.562341,
                     0.604296, 0.649382, 0.697831, 0.749894, 0.805842, 0.865964, 0.930572, 1.000000,
@@ -36,18 +37,22 @@ data = {
                     80.584221, 86.596436, 93.057205]
 }
 
-
-
-
 # Create DataFrame
-df = pd.DataFrame(data)
+particleCountInfo = pd.DataFrame(data)
 
-print(df)
+print(particleCountInfo)
 # Add 'Midpoint [µm]' column
-df['Midpoint [µm]'] = (df['Xlower [µm]'] + df['Xupper [µm]']) / 2
+particleCountInfo['Midpoint [µm]'] = (particleCountInfo['Xlower [µm]'] + particleCountInfo['Xupper [µm]']) / 2
 
 # Print the updated DataFrame
-print(df)
+print(particleCountInfo)
+
+
+# For particulate matter 
+
+    "Data channel": list(range(110, 205)),
+
+
 
 
 
@@ -88,8 +93,9 @@ while True:
         buffer_size = len(data)
         print(data[0])
         print(f"Buffer size of received message: {buffer_size} bytes")
-        df['Mapped Value'] = df['Data channel'].map(data_dict)
-        print(df.head(20))
+        particleCountInfo['particleCounts'] = particleCountInfo['Data channel'].map(data_dict)
+        print(datetime.datetime.now())
+        print(particleCountInfo.head(20))
 
 
     except Exception as e:
