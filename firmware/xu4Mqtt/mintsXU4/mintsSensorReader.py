@@ -68,7 +68,7 @@ def getWritePathWearable(nodeID,labelIn,dateTime):
 
 def sensorFinisher(dateTime,sensorName,sensorDictionary):
     #Getting Write Path
-    
+
     writePath = getWritePath(sensorName,dateTime)
     exists = directoryCheck(writePath)
     writeCSV2(writePath,sensorDictionary,exists)
@@ -97,7 +97,7 @@ def sensorFinisherReference(dateTime,sensorName,sensorDictionary):
 
 def sensorFinisherIP(dateTime,sensorName,sensorDictionary):
     #Getting Write Path
-    writePath = getWritePathIP(sensorName,dateTime)
+    writePath = getWritePathIPV2(sensorName,dateTime)
     exists = directoryCheck(writePath)
     writeCSV2(writePath,sensorDictionary,exists)
     print(writePath)
@@ -1188,6 +1188,10 @@ def getWritePathIP(labelIn,dateTime):
     writePath = dataFolder+"/"+macAddress+"/"+"MINTS_"+ macAddress+ "_IP.csv"
     return writePath;
 
+def getWritePathIPV2(labelIn,dateTime):
+    #Example  : MINTS_0061.csv
+    writePath = dataFolder+"/"+macAddress+"/"+"MINTS_"+ macAddress+ "_IPV2.csv"
+    return writePath;
 
 def getWritePathSnaps(labelIn,dateTime):
     #Example  : MINTS_0061_OOPCN3_2019_01_04.csv
