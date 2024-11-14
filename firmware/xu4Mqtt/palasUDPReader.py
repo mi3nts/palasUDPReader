@@ -94,7 +94,7 @@ while True:
         print(f"Buffer size of received message: {buffer_size} bytes")
         particleCountInfo['particleCounts'] = particleCountInfo['Data channel'].map(data_dict)
         ordered_dict = OrderedDict(zip(particleCountInfo['measurment'], particleCountInfo['particleCounts']))
-        OrderedDict([(dateTimeNow, None)] + list(ordered_dict.items()))
+        OrderedDict([("dateTime", dateTimeNow)] + list(ordered_dict.items()))
         mSR.sensorFinisher(dateTimeNow,"PLSFRG001",OrderedDict([(dateTimeNow, None)] + list(ordered_dict.items())))
 
 
