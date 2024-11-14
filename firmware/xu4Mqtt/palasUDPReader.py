@@ -28,9 +28,10 @@ data = {
                     80.584221, 86.596436, 93.057205]
 }
 
-# # Create DataFrame
-# df = pd.DataFrame(data)
+# Create DataFrame
+df = pd.DataFrame(data)
 
+print(df)
 # # Add 'Midpoint [µm]' column
 # df['Midpoint [µm]'] = (df['Xlower [µm]'] + df['Xupper [µm]']) / 2
 
