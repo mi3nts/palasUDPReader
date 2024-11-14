@@ -22,7 +22,7 @@ import os
 
 
 def main():
-    sensorName = "IP"
+    sensorName = "IPV2"
     dateTimeNow = datetime.datetime.now()
     print("Gaining Public and Private IPs")
 
@@ -53,6 +53,7 @@ def main():
     # Create the sensor dictionary to pass to the sensor finisher
     sensorDictionary = OrderedDict([
         ("dateTime", str(dateTimeNow)),
+        ("interface", str(interface)),
         ("publicIp", str(publicIp)),
         ("localIp", str(localIp))
     ])
