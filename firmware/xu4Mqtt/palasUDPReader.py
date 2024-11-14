@@ -88,10 +88,10 @@ while True:
                 data_dict[int(key)] = float(value)
 
         # Step 4: Print the decoded dictionary
-        print(data_dict)
-        buffer_size = len(data)
-        print(data[0])
-        print(f"Buffer size of received message: {buffer_size} bytes")
+        # print(data_dict)
+        # buffer_size = len(data)
+        # print(data[0])
+        # print(f"Buffer size of received message: {buffer_size} bytes")
         particleCountInfo['particleCounts'] = particleCountInfo['Data channel'].map(data_dict)
         orderedDict = OrderedDict(zip(particleCountInfo['measurment'], particleCountInfo['particleCounts']))
         mSR.sensorFinisher(dateTimeNow,"PLSFRG001",    OrderedDict([("dateTime", str(dateTimeNow))] + list(orderedDict.items())))
