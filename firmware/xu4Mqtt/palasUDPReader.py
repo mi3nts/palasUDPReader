@@ -88,7 +88,7 @@ while True:
         buffer_size = len(data)
         print(data[0])
         print(f"Buffer size of received message: {buffer_size} bytes")
-        df['Mapped Value'] = df['Midpoint [µm]'].map(data_dict)
+        df['Mapped Value'] = df['Data channel'].map(data_dict)
         print(df)
 
 
