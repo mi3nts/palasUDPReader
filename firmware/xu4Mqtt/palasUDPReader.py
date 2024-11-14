@@ -45,7 +45,7 @@ print(particleCountInfo)
 particleCountInfo['Midpoint [µm]'] = (particleCountInfo['Xlower [µm]'] + particleCountInfo['Xupper [µm]']) / 2
 # particleCountInfo['columnName'] = "pc" +str(particleCountInfo['Midpoint [µm]']).replace(".","_")
 # Print the updated DataFrame
-print(particleCountInfo)
+particleCountInfo['Midpoint String'] = particleCountInfo['Midpoint [µm]'].astype(str).replace(".","_")
 
 
 # For particulate matter 
