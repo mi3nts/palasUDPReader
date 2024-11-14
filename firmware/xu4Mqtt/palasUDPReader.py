@@ -95,7 +95,7 @@ while True:
         particleCountInfo['particleCounts'] = particleCountInfo['Data channel'].map(data_dict)
         orderedDict = OrderedDict(zip(particleCountInfo['measurment'], particleCountInfo['particleCounts']))
         mSR.sensorFinisher(dateTimeNow,"PLSFRG001",    OrderedDict([("dateTime", str(dateTimeNow))] + list(orderedDict.items())))
-
+        print("---------------")
 
     except Exception as e:
         print(f"Error receiving data: {e}")
